@@ -71,4 +71,8 @@ public abstract class PieceDeJeu implements Deplacable {
     public int getCouleur() {
         return couleur;
     }
+    
+    public void manger(Point2D pt){
+        
+    }
 }

@@ -19,8 +19,7 @@ public class Pion extends PieceDeJeu{
     
     @Override
     public void deplacer(){
-        int x=this.getPosition().getX();
-        int y=this.getPosition().getY();
+        Point2D obj = new Point2D (this.getPosition().getX(),this.getPosition().getY());
         Scanner sc=new Scanner(System.in);
         System.out.println("Choisissez la direction de déplacement :");
         System.out.println("  1 = devant à gauche");
@@ -43,35 +42,38 @@ public class Pion extends PieceDeJeu{
         }
         if (this.getCouleur()==0){
             switch (lecture){
-                case 1: x=x-1; y=y+1; break;
-                case 2: x=x+1; y=y+1; break;
-                case 3: x=x-1; y=y-1; break;
-                case 4: x=x+1; y=y-1; break;
+                case 1: obj.setX(obj.getX()-1);obj.setY(obj.getY()+1); break;
+                case 2: obj.setX(obj.getX()+1);obj.setY(obj.getY()+1); break;
+                case 3: obj.setX(obj.getX()-1);obj.setY(obj.getY()-1); break;
+                case 4: obj.setX(obj.getX()+1);obj.setY(obj.getY()-1); break;
             }
-            if (peutBouger(x,y)==1){
-                this.setPosition(x,y);
-            } if (peutBouger(x,y)==2){
-                manger(x,y);
+            if (peutBouger(obj)==1){
+                this.setPosition(obj);
+            } if (peutBouger(obj)==2){
+                manger(obj);
+                int x=obj.getX();
+                int y=obj.getY();
                 this.setPosition(getPosition().getX() + (x-getPosition().getX())*2,getPosition().getY() + (y-getPosition().getY())*2);
             }
         }
     }
     
-    public int peutBouger(int x,int y){ // 0=pas bouger ; 1=case libre ; // 2=case  occupée mais peut manger
-        boolean flag=false;
+    public int peutBouger(Point2D pt){ // 0=pas bouger ; 1=case libre ; // 2=case  occupée mais peut manger
+        int x=pt.getX();
+        int y=pt.getY();
         if (x>=0 && x<10 && y>=0 && y<10){
             if (plateau.estLibre(x,y)){
-                flag=true;
+                return 1;
             }else{
                 x=getPosition().getX() + (x-getPosition().getX())*2;
                 y=getPosition().getY() + (y-getPosition().getY())*2;
                 if (x>=0 && x<10 && y>=0 && y<10){
                     if (plateau.estLibre(x,y)){
-                        flag=true;
+                        return 2;
                     }
                 }
             }
         }
-        return flag;
+        return 0;
     }
 }

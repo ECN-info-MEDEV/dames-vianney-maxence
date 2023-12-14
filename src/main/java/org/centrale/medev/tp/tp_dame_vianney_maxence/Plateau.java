@@ -47,8 +47,11 @@ public class Plateau {
     }
     
     public boolean estLibre(int x,int y){
-        boolean flag=false;
-        for (PieceDeJeu)
-        return flag;
+        for (PieceDeJeu p:listePlateau){
+            if (p.getPosition().getX()==x && p.getPosition().getY()==y){
+                return false;
+            }
+        }
+        return true;
     }
 }
