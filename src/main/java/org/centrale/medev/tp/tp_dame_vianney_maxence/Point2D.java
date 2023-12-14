@@ -16,7 +16,7 @@ public class Point2D {
     private int y;
     
     /**
-     *
+     * Constructeur sans attribut avec attribution de valeurs par défauts
      */
     public Point2D() {
         this(0,0);
