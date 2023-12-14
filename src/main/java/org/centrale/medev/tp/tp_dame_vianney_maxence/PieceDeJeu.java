@@ -73,6 +73,10 @@ public abstract class PieceDeJeu implements Deplacable {
     }
     
     public void manger(Point2D pt){
-        
+        for (PieceDeJeu p: plateau.listePlateau){
+            if (p.getPosition().equals(pt)){
+                plateau.listePlateau.remove(p);
+            }
+        }
     }
 }

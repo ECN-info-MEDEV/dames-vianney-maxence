@@ -72,5 +72,11 @@ public class Point2D {
         this.y = y;
     }
     
+    public boolean equals(Point2D pt){
+        if (this.x==pt.x && this.y==pt.y){
+            return true;
+        }
+        return false;
+    }
     
 }
