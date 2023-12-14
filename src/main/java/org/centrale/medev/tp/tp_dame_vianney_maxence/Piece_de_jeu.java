@@ -15,6 +15,13 @@ public abstract class Piece_de_jeu implements Deplacable {
     private int couleur;
     private Point2D position;
 
+	/**
+     * Constructeur avec les valeurs pour chaque paramètre
+     * @param clr
+     * @param x
+     * @param y
+	 * @param plat 
+     */
     public Piece_de_jeu(int clr, int x, int y, Plateau plat){
         couleur=clr;
         position=new Point2D(x,y);
@@ -25,15 +32,14 @@ public abstract class Piece_de_jeu implements Deplacable {
      * Constructeur sans attribut de la classe
      */
     public Piece_de_jeu(){
-        this.position = new Point2D();
+		couleur=0;        this.position = new Point2D();
     }
     
     /**
      * Constructeur de recopie de la classe
-     * @param position
+     * @param piece
      */
     public Piece_de_jeu(Point2D position) {
-        this.position = new Point2D(position);
     }
 
     /**
