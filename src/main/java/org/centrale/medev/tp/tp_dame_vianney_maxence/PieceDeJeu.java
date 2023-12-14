@@ -9,7 +9,7 @@ package org.centrale.medev.tp.tp_dame_vianney_maxence;
  *
  * @author User
  */
-public abstract class Piece_de_jeu implements Deplacable {
+public abstract class PieceDeJeu implements Deplacable {
     
     public Plateau plateau;
     private int couleur;
@@ -22,7 +22,7 @@ public abstract class Piece_de_jeu implements Deplacable {
      * @param y
 	 * @param plat 
      */
-    public Piece_de_jeu(int clr, int x, int y, Plateau plat){
+    public PieceDeJeu(int clr, int x, int y, Plateau plat){
         couleur=clr;
         position=new Point2D(x,y);
         plateau=plat;
@@ -31,7 +31,7 @@ public abstract class Piece_de_jeu implements Deplacable {
     /**
      * Constructeur sans attribut de la classe
      */
-    public Piece_de_jeu(){
+    public PieceDeJeu(){
 		couleur=0;        this.position = new Point2D();
     }
     
@@ -39,7 +39,7 @@ public abstract class Piece_de_jeu implements Deplacable {
      * Constructeur de recopie de la classe
      * @param piece
      */
-    public Piece_de_jeu(Point2D position) {
+    public PieceDeJeu(Point2D position) {
     }
 
     /**

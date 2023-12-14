@@ -8,7 +8,7 @@ package org.centrale.medev.tp.tp_dame_vianney_maxence;
  *
  * @author User
  */
-public class Dame extends Piece_de_jeu{
+public class Dame extends PieceDeJeu{
 
     public Dame(int clr, int x, int y, Plateau plat) {
         super(clr, x, y, plat);

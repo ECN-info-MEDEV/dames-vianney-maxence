@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author User
  */
-public class Pion extends Piece_de_jeu{
+public class Pion extends PieceDeJeu{
 
     public Pion(int clr,int x,int y, Plateau plat) {
         super(clr,x,y,plat);
@@ -43,25 +43,35 @@ public class Pion extends Piece_de_jeu{
         }
         if (this.getCouleur()==0){
             switch (lecture){
-                case 1:
-                    if (peutBouger(getPosition().getX()-1,getPosition().getY()+1)){
-                        setPosition(getPosition().getX()-1,getPosition().getY()+1);
-                    }
-                case 2:
-                    if (peutBouger(getPosition().getX()-1,getPosition().getY()+1)){
-                        setPosition(getPosition().getX()+1,getPosition().getY()+1);
-                    }
-                case 3:
-                    if (peutBouger(getPosition().getX()-1,getPosition().getY()-1));
-                case 4:
-                    if 
+                case 1: x=x-1; y=y+1; break;
+                case 2: x=x+1; y=y+1; break;
+                case 3: x=x-1; y=y-1; break;
+                case 4: x=x+1; y=y-1; break;
+            }
+            if (peutBouger(x,y)==1){
+                this.setPosition(x,y);
+            } if (peutBouger(x,y)==2){
+                manger(x,y);
+                this.setPosition(getPosition().getX() + (x-getPosition().getX())*2,getPosition().getY() + (y-getPosition().getY())*2);
             }
         }
     }
     
-    public boolean peutBouger(int x,int y){
+    public int peutBouger(int x,int y){ // 0=pas bouger ; 1=case libre ; // 2=case  occupée mais peut manger
         boolean flag=false;
-        if ()
+        if (x>=0 && x<10 && y>=0 && y<10){
+            if (plateau.estLibre(x,y)){
+                flag=true;
+            }else{
+                x=getPosition().getX() + (x-getPosition().getX())*2;
+                y=getPosition().getY() + (y-getPosition().getY())*2;
+                if (x>=0 && x<10 && y>=0 && y<10){
+                    if (plateau.estLibre(x,y)){
+                        flag=true;
+                    }
+                }
+            }
+        }
         return flag;
     }
 }

@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class Plateau {
     
     public static final int TAILLE = 10;
-    public ArrayList<Piece_de_jeu> listePlateau;
+    public ArrayList<PieceDeJeu> listePlateau;
 
-    public Plateau(ArrayList<Piece_de_jeu> listePlateau) {
+    public Plateau(ArrayList<PieceDeJeu> listePlateau) {
         this.listePlateau = new ArrayList<>(listePlateau);
     }
 
@@ -23,7 +23,7 @@ public class Plateau {
         this.listePlateau = new ArrayList<>();
     }
 
-    public ArrayList<Piece_de_jeu> getListePlateau() {
+    public ArrayList<PieceDeJeu> getListePlateau() {
         return listePlateau;
     }
 
@@ -31,7 +31,7 @@ public class Plateau {
         return TAILLE;
     }
 
-    public void setListePlateau(ArrayList<Piece_de_jeu> listePlateau) {
+    public void setListePlateau(ArrayList<PieceDeJeu> listePlateau) {
         this.listePlateau = listePlateau;
     }
     
@@ -41,8 +41,14 @@ public class Plateau {
         
         for (int i=0; i<2;i++){
             for (int j=(i*35)*2;j<(i+1)*40+i*30;j+=2){
-                listePlateau.add(j*2, new Pion(i,j/TAILLE,j%TAILLE));
+                listePlateau.add(j*2, new Pion(i,j/TAILLE,j%TAILLE),this);
             }
         }
+    }
+    
+    public boolean estLibre(int x,int y){
+        boolean flag=false;
+        for (PieceDeJeu)
+        return flag;
     }
 }
