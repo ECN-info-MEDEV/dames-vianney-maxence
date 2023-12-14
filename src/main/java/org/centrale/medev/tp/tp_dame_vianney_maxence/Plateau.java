@@ -4,10 +4,45 @@
  */
 package org.centrale.medev.tp.tp_dame_vianney_maxence;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
  */
 public class Plateau {
     
+    public static final int TAILLE = 10;
+    public ArrayList<Piece_de_jeu> listePlateau;
+
+    public Plateau(ArrayList<Piece_de_jeu> listePlateau) {
+        this.listePlateau = new ArrayList<>(listePlateau);
+    }
+
+    public Plateau() {
+        this.listePlateau = new ArrayList<>();
+    }
+
+    public ArrayList<Piece_de_jeu> getListePlateau() {
+        return listePlateau;
+    }
+
+    public static int getTAILLE() {
+        return TAILLE;
+    }
+
+    public void setListePlateau(ArrayList<Piece_de_jeu> listePlateau) {
+        this.listePlateau = listePlateau;
+    }
+    
+    
+    
+    public void creaPlateau(){
+        
+        for (int i=0; i<2;i++){
+            for (int j=(i*35)*2;j<(i+1)*40+i*30;j+=2){
+                listePlateau.add(j*2, new Pion(i,j/TAILLE,j%TAILLE));
+            }
+        }
+    }
 }
