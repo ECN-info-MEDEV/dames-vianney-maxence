@@ -41,7 +41,7 @@ public abstract class Pieces_de_jeu implements Deplacable {
      * @param position
      */
     public void setPosition(Point2D position) {
-        this.setPosition(this.position.getX(), this.position.getY());
+        this.setPosition(position.getX(), position.getY());
     }
     
     /**
